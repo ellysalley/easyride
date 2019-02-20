@@ -4,12 +4,10 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from "typeorm";
 import { verificationTarget } from "../types/types";
-import User from "./User";
 
 const PHONE = "PHONE";
 const EMAIL = "EMAIL";
