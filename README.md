@@ -5,11 +5,9 @@ Server for the ride sharing service
 ## Resolvers
 
 - [x] Sign Up/In with Facebook
-- [ ] Sign Up/In with Email
+- [x] Sign Up/In with Email
 - [ ] Phone number verifications
 - [ ] User Profile
-
----
 
 ## Private Resolvers
 
