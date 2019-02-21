@@ -7,14 +7,16 @@ Server for the ride sharing service
 - [x] Sign Up/In with Facebook
 - [x] Sign Up/In with Email
 - [x] Phone number verifications
-- [ ] User Profile
 
-## Private Resolvers
-
+## Authentification
 - [ ] Generate/Verify JWP
 - [ ] Verify Email
+  
+## Private Resolvers
+
 - [ ] Add/Edit/Delete Place
 - [ ] Driver Mode
+- [ ] User Profile
 - [ ] Report Location / Orientation
 - [ ] Discover Nearby Drivers
 - [ ] Request a Ride
