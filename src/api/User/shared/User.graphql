@@ -8,7 +8,7 @@ type User {
   age: Int
   password: String
   phoneNumber: String
-  verifiedphoneNumver: String
+  verifiedPhoneNumber: Boolean!
   profilePhoto: String
   fullName: String
   isDriving: Boolean!

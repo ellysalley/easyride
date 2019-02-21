@@ -1,17 +1,17 @@
 import Verification from "../../../entities/Verification";
 import {
-  PhoneVerificationMutationArgs,
-  PhoneVerificationResponse
+  StartPhoneVerificationMutationArgs,
+  StartPhoneVerificationResponse
 } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import { sendVerificationSMS } from "../../../utils/sendSMS";
 
 const resolvers: Resolvers = {
   Mutation: {
-    PhoneVerification: async (
+    StartPhoneVerification: async (
       _,
-      args: PhoneVerificationMutationArgs
-    ): Promise<PhoneVerificationResponse> => {
+      args: StartPhoneVerificationMutationArgs
+    ): Promise<StartPhoneVerificationResponse> => {
       const { phoneNumber } = args;
       try {
         const existingVerification = await Verification.findOne({
