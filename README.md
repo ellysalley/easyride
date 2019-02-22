@@ -9,14 +9,14 @@ Server for the ride sharing service
 - [x] Phone number verifications
 
 ## Authentification
-- [ ] Generate/Verify JWP
+- [X] Generate/Verify JWP
 - [ ] Verify Email
   
 ## Private Resolvers
 
 - [ ] Add/Edit/Delete Place
 - [ ] Driver Mode
-- [ ] User Profile
+- [X] User Profile
 - [ ] Report Location / Orientation
 - [ ] Discover Nearby Drivers
 - [ ] Request a Ride
