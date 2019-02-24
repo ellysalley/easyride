@@ -10,7 +10,7 @@ Server for the ride sharing service
 
 ## Authentification
 - [X] Generate/Verify JWP
-- [ ] Verify Email
+- [X] Verify Email
   
 ## Private Resolvers
 
