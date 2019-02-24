@@ -10,10 +10,11 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
+  UpdateDateColumn
 } from "typeorm";
 import Chat from "./Chat";
 import Message from "./Message";
+import Place from "./Place";
 import Ride from "./Ride";
 
 const BCRYPT_ROUNDS = 10;
@@ -49,28 +50,28 @@ class User extends BaseEntity {
 
   @Column({ type: "text" })
   profilePhoto: string;
-  
+
   @Column({ type: "boolean", default: false })
   isDriving: boolean;
-  
+
   @Column({ type: "boolean", default: false })
   isRiding: boolean;
-  
+
   @Column({ type: "boolean", default: false })
   isTaken: boolean;
-  
-  @Column({ type: "double precision", default: 0 })
-  lastLat: number;
-  
+
   @Column({ type: "double precision", default: 0 })
   lastLng: number;
-  
+
+  @Column({ type: "double precision", default: 0 })
+  lastLat: number;
+
   @Column({ type: "double precision", default: 0 })
   lastOrientation: number;
 
   @Column({ type: "text", nullable: true })
   fbId: string;
-  
+
   @ManyToOne(type => Chat, chat => chat.participants)
   chat: Chat;
 
@@ -83,15 +84,18 @@ class User extends BaseEntity {
   @OneToMany(type => Ride, ride => ride.driver)
   ridesAsDriver: Ride[];
 
-  @CreateDateColumn() createAt: string;
+  @OneToMany(type => Place, place => place.user)
+  places: Place[];
 
-  @UpdateDateColumn() updateAt: string;
+  @CreateDateColumn() createdAt: string;
+
+  @UpdateDateColumn() updatedAt: string;
 
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
   }
 
-  public comparePassword(password: string): Promise<boolean>{
+  public comparePassword(password: string): Promise<boolean> {
     return bcrypt.compare(password, this.password);
   }
 
@@ -103,6 +107,7 @@ class User extends BaseEntity {
       this.password = hashedPassword;
     }
   }
+
   private hashPassword(password: string): Promise<string> {
     return bcrypt.hash(password, BCRYPT_ROUNDS);
   }

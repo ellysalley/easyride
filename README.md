@@ -16,8 +16,8 @@ Server for the ride sharing service
 
 - [X] Driver Mode
 - [X] User Profile
-- [ ] Report Location / Orientation
-- [ ] Add/Edit/Delete Place
+- [X] Report Location / Orientation
+- [X] Add/Edit/Delete Place
 - [ ] Discover Nearby Drivers
 - [ ] Request a Ride
 - [ ] Get Nearby Ride
