@@ -1,6 +1,6 @@
 type Chat {
   id: Int!
-  messages: [Message]!
+  message: [Message]!
   participants: [User]!
   createdAt: String!
   updatedAt: String
@@ -25,13 +25,13 @@ type Mutation {
   DeletePlace(placeId: Int!): DeletePlaceResponse!
   EditPlace(placeId: Int!, name: String, isFav: Boolean): EditPlaceResponse!
   CompleteEmailVerification(key: String!): CompleteEmailVerificationResponse!
-  CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
   EmailSignUp(firstName: String!, lastName: String!, email: String!, password: String!, profilePhoto: String!, age: Int!, phoneNumber: String!): EmailSignUpResponse!
   FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
+  CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
+  StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
   ReportMovement(orientation: Float, lat: Float, lng: Float): ReportMovementResponse!
   RequestEmailVerification: RequestEmailVerificationResponse!
-  StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
   ToggleDrivingMode: ToggleDrivingModeResponse!
   UpdateMyProfile(firstName: String, lastName: String, email: String, password: String, profilePhoto: String, age: Int): UpdateMyProfileResponse!
 }
@@ -44,6 +44,17 @@ type DeletePlaceResponse {
 type EditPlaceResponse {
   ok: Boolean!
   error: String
+}
+
+type GetMyPlacesResponse {
+  ok: Boolean!
+  error: String
+  places: [Place]
+}
+
+type Query {
+  GetMyPlaces: GetMyPlacesResponse!
+  GetMyProfile: GetMyProfileResponse!
 }
 
 type Place {
@@ -82,12 +93,6 @@ type CompleteEmailVerificationResponse {
   error: String
 }
 
-type CompletePhoneVerificationResponse {
-  ok: Boolean!
-  error: String
-  token: String
-}
-
 type EmailSignInResponse {
   ok: Boolean!
   error: String
@@ -112,8 +117,15 @@ type GetMyProfileResponse {
   user: User
 }
 
-type Query {
-  GetMyProfile: GetMyProfileResponse!
+type CompletePhoneVerificationResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type StartPhoneVerificationResponse {
+  ok: Boolean!
+  error: String
 }
 
 type ReportMovementResponse {
@@ -132,6 +144,7 @@ type User {
   verifiedEmail: Boolean!
   firstName: String!
   lastName: String!
+  facebookID: String
   age: Int
   password: String
   phoneNumber: String
@@ -147,16 +160,11 @@ type User {
   fbId: String
   chat: Chat
   messages: [Message]
-  ridesAsPassenger: [Ride]
-  ridesAsDriver: [Ride]
+  rideAsPassenger: [Ride]
+  rideAsDriver: [Ride]
   places: [Place]
   createdAt: String!
   updatedAt: String
-}
-
-type StartPhoneVerificationResponse {
-  ok: Boolean!
-  error: String
 }
 
 type ToggleDrivingModeResponse {
@@ -175,6 +183,6 @@ type Verification {
   payload: String!
   key: String!
   verified: Boolean!
-  createdAt: String!
-  updatedAt: String
+  createAt: String!
+  updateAt: String!
 }

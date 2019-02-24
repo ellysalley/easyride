@@ -30,7 +30,7 @@ class Place extends BaseEntity {
 
   @Column({ nullable: true })
   userId: number;
-  
+
   @ManyToOne(type => User, user => user.places)
   user: User;
 
