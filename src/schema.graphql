@@ -1,6 +1,6 @@
 type Chat {
   id: Int!
-  messages: [Message]!
+  message: [Message]!
   participants: [User]!
   createdAt: String!
   updatedAt: String
@@ -51,20 +51,15 @@ type CompleteEmailVerificationResponse {
 
 type Mutation {
   CompleteEmailVerification(key: String!): CompleteEmailVerificationResponse!
-  CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
   EmailSignUp(firstName: String!, lastName: String!, email: String!, password: String!, profilePhoto: String!, age: Int!, phoneNumber: String!): EmailSignUpResponse!
   FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
-  RequestEmailVerification: RequestEmailVerificationResponse!
+  CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
   StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
+  ReportMovement(orientation: Float, lat: Float, lng: Float): ReportMovementResponse!
+  RequestEmailVerification: RequestEmailVerificationResponse!
   ToggleDrivingMode: ToggleDrivingModeResponse!
   UpdateMyProfile(firstName: String, lastName: String, email: String, password: String, profilePhoto: String, age: Int): UpdateMyProfileResponse!
-}
-
-type CompletePhoneVerificationResponse {
-  ok: Boolean!
-  error: String
-  token: String
 }
 
 type EmailSignInResponse {
@@ -95,6 +90,22 @@ type Query {
   GetMyProfile: GetMyProfileResponse!
 }
 
+type CompletePhoneVerificationResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type StartPhoneVerificationResponse {
+  ok: Boolean!
+  error: String
+}
+
+type ReportMovementResponse {
+  ok: Boolean!
+  error: String
+}
+
 type RequestEmailVerificationResponse {
   ok: Boolean!
   error: String
@@ -106,6 +117,7 @@ type User {
   verifiedEmail: Boolean!
   firstName: String!
   lastName: String!
+  facebookID: String
   age: Int
   password: String
   phoneNumber: String
@@ -121,15 +133,10 @@ type User {
   fbId: String
   chat: Chat
   messages: [Message]
-  ridesAsPassenger: [Ride]
-  ridesAsDriver: [Ride]
+  rideAsPassenger: [Ride]
+  rideAsDriver: [Ride]
   createdAt: String!
   updatedAt: String
-}
-
-type StartPhoneVerificationResponse {
-  ok: Boolean!
-  error: String
 }
 
 type ToggleDrivingModeResponse {
@@ -148,6 +155,6 @@ type Verification {
   payload: String!
   key: String!
   verified: Boolean!
-  createdAt: String!
-  updatedAt: String
+  createAt: String!
+  updateAt: String!
 }
