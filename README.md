@@ -14,10 +14,10 @@ Server for the ride sharing service
   
 ## Private Resolvers
 
-- [ ] Add/Edit/Delete Place
-- [ ] Driver Mode
+- [X] Driver Mode
 - [X] User Profile
 - [ ] Report Location / Orientation
+- [ ] Add/Edit/Delete Place
 - [ ] Discover Nearby Drivers
 - [ ] Request a Ride
 - [ ] Get Nearby Ride
