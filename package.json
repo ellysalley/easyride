@@ -2,7 +2,7 @@
   "name": "easyride",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/ellysalley/easyride.git",
+  "repository": "https://github.com/ellysalley/easyride-server.git",
   "author": "Elly <ellyhahn@gmail.com>",
   "license": "MIT",
   "devDependencies": {
