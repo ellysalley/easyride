@@ -25,5 +25,6 @@ Server for the ride sharing service
 - [X] Subscribe to Ride Requests
 - [X] Update Ride Status
 - [X] Create Chat Room
-- [ ] Get/Subscribe/Send Chat Room Messages
-- [ ] See Ride History
+- [X] Get Chat Room Messages
+- [ ] Subscribe to Chat Room Messages
+- [ ] Send a Chat Messages
