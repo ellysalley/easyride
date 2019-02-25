@@ -1,6 +1,6 @@
 type Chat {
   id: Int!
-  messages: [Message]!
+  message: [Message]!
   participants: [User]!
   createdAt: String!
   updatedAt: String
@@ -26,13 +26,13 @@ type Mutation {
   EditPlace(placeId: Int!, name: String, isFav: Boolean): EditPlaceResponse!
   RequestRide(pickUpAddress: String!, pickUpLat: Float!, pickUpLng: Float!, dropOffAddress: String!, dropOffLat: Float!, dropOffLng: Float!, price: Float!, distance: String!, duration: String!): RequestRideResponse!
   CompleteEmailVerification(key: String!): CompleteEmailVerificationResponse!
-  CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
   EmailSignUp(firstName: String!, lastName: String!, email: String!, password: String!, profilePhoto: String!, age: Int!, phoneNumber: String!): EmailSignUpResponse!
   FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
-  ReportMovement(orientation: Float, lastLat: Float, lastLng: Float): ReportMovementResponse!
-  RequestEmailVerification: RequestEmailVerificationResponse!
+  CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
   StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
+  ReportMovement(orientation: Float, lastlat: Float, lastlng: Float): ReportMovementResponse!
+  RequestEmailVerification: RequestEmailVerificationResponse!
   ToggleDrivingMode: ToggleDrivingModeResponse!
   UpdateMyProfile(firstName: String, lastName: String, email: String, password: String, profilePhoto: String, age: Int): UpdateMyProfileResponse!
 }
@@ -55,7 +55,7 @@ type GetMyPlacesResponse {
 
 type Query {
   GetMyPlaces: GetMyPlacesResponse!
-  GetNearbyRides: GetNearbyRidesResponse!
+  GetNearbyRide: GetNearbyRideResponse!
   GetMyProfile: GetMyProfileResponse!
   GetNearbyDrivers: GetNearbyDriversResponse!
 }
@@ -73,10 +73,15 @@ type Place {
   updatedAt: String
 }
 
-type GetNearbyRidesResponse {
+type GetNearbyRideResponse {
   ok: Boolean!
   error: String
-  rides: [Ride]
+  ride: Ride
+}
+
+type Subscription {
+  NearbyRideSubscription: Ride
+  DriversSubscription: User
 }
 
 type RequestRideResponse {
@@ -108,16 +113,6 @@ type CompleteEmailVerificationResponse {
   error: String
 }
 
-type CompletePhoneVerificationResponse {
-  ok: Boolean!
-  error: String
-  token: String
-}
-
-type Subscription {
-  DriversSubscription: User
-}
-
 type EmailSignInResponse {
   ok: Boolean!
   error: String
@@ -146,6 +141,17 @@ type GetNearbyDriversResponse {
   ok: Boolean!
   error: String
   drivers: [User]
+}
+
+type CompletePhoneVerificationResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type StartPhoneVerificationResponse {
+  ok: Boolean!
+  error: String
 }
 
 type ReportMovementResponse {
@@ -186,11 +192,6 @@ type User {
   updatedAt: String
 }
 
-type StartPhoneVerificationResponse {
-  ok: Boolean!
-  error: String
-}
-
 type ToggleDrivingModeResponse {
   ok: Boolean!
   error: String
@@ -208,5 +209,5 @@ type Verification {
   key: String!
   verified: Boolean!
   createdAt: String!
-  updatedAt: String
+  updatedAt: String!
 }
