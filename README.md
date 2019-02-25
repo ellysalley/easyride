@@ -19,8 +19,8 @@ Server for the ride sharing service
 - [X] Report Location / Orientation
 - [X] Add/Edit/Delete Place
 - [X] Get My Place
-- [ ] Discover Nearby Drivers
-- [ ] Request a Ride
+- [X] Discover Nearby Drivers
+- [X] Request a Ride
 - [ ] Get Nearby Ride
 - [ ] Subscribe to Ride Status
 - [ ] Get/Subscribe/Send Chat Room Messages
