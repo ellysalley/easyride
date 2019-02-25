@@ -1,4 +1,4 @@
-# pool-server
+# easyride-server
 
 Server for the ride sharing service
 
