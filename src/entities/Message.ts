@@ -5,8 +5,9 @@ import {
   Entity,
   ManyToOne,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
+  UpdateDateColumn
 } from "typeorm";
+
 import Chat from "./Chat";
 import User from "./User";
 
@@ -23,9 +24,8 @@ class Message extends BaseEntity {
   @ManyToOne(type => User, user => user.messages)
   user: User;
 
-  @CreateDateColumn() createAt: string;
-  
-  @UpdateDateColumn() updateAt: string;
-}
+  @CreateDateColumn() createdAt: string;
 
+  @UpdateDateColumn() updatedAt: string;
+}
 export default Message;
