@@ -27,4 +27,4 @@ Server for the ride sharing service
 - [X] Create Chat Room
 - [X] Get Chat Room Messages
 - [X] Send a Chat Messages
-- [ ] Subscribe to Chat Room Messages
+- [X] Subscribe to Chat Room Messages
