@@ -1,18 +1,19 @@
-# easyride-server
+# easyride
+Ride sharing service for commuters
 
-Server for the ride sharing service
+## Server
 
-## Resolvers
+### Resolvers
 
 - [x] Sign Up/In with Facebook
 - [x] Sign Up/In with Email
 - [x] Phone number verifications
 
-## Authentification
+### Authentification
 - [X] Generate/Verify JWP
 - [X] Verify Email
   
-## Private Resolvers
+### Private Resolvers
 
 - [X] Driver Mode
 - [X] User Profile
