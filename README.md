@@ -23,5 +23,6 @@ Server for the ride sharing service
 - [X] Request a Ride
 - [X] Get Nearby Ride Requests
 - [X] Subscribe to Ride Requests
+- [ ] Update Ride Status
 - [ ] Get/Subscribe/Send Chat Room Messages
 - [ ] See Ride History
