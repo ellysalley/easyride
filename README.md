@@ -29,3 +29,24 @@ Ride sharing service for commuters
 - [X] Get Chat Room Messages
 - [X] Send a Chat Messages
 - [X] Subscribe to Chat Room Messages
+
+## Client
+ReactJS, Apollo, Typescript
+
+### Logged Out:
+
+- [ ] Home
+- [ ] Phone Login
+- [ ] Verify Phone Number
+- [ ] Social Login
+
+### Logged In:
+
+- [ ] Home
+- [ ] Ride
+- [ ] Chat
+- [ ] Edit Account
+- [ ] Settings
+- [ ] Places
+- [ ] Add Place
+- [ ] Find Address
